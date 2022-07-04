@@ -127,7 +127,7 @@ fun_bar 'fun_curl'
 echo ""
 #
 clear
-echo -e "\E[44;1;37m    INSTALAR O PAINELWEB SSH/DROP/SSL MultiHD-SSH     \E[0m"
+echo -e "\E[44;1;37m    INSTALAR O PAINELWEB 2022nt     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @SwitTecnologia\033[1;36m"
 echo -e "   Painel-2022NT" | figlet
