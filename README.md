@@ -2,7 +2,7 @@
 
 # SISTEMAS RECOMENDADO
 ```
-Debian 8 </br>
+Debian 8
 Ubuntu 14
 ```
 
