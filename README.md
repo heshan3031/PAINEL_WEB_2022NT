@@ -1,8 +1,7 @@
 ![Login Admin Black](https://user-images.githubusercontent.com/105602625/177224804-97cdcf74-7899-4470-95ca-cae4cb43c7f5.jpg)
-![Login Revenda Black](https://user-images.githubusercontent.com/105602625/177224808-97563e15-9031-4373-9416-1372d8efbf7f.jpg)
 
-#SISTEMAS RECOMENDADO
-Debian 8 
+# SISTEMAS RECOMENDADO
+Debian 8 </br>
 Ubuntu 14
 
 # ATUALIZAR PACOTES DO SISTEMA
@@ -36,3 +35,5 @@ apt install dos2unix -y; wget https://raw.githubusercontent.com/wellzin-blip/v20
 ```
 ☆ https://t.me/swittecnologia ☆
 ```
+
+![Login Revenda Black](https://user-images.githubusercontent.com/105602625/177224808-97563e15-9031-4373-9416-1372d8efbf7f.jpg)
