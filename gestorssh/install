@@ -1,225 +1,243 @@
 #!/bin/bash
 clear
+apt-get install lolcat -y &>/dev/null
+apt-get install figlet -y &>/dev/null
+apt-get install curl -y &>/dev/null
+apt install git -y &>/dev/null 
+apt install figlet boxes -y &>/dev/null
+[[ "$(whoami)" != "root" ]] && {
+echo -e "\033[1;33m[\033[1;31mErro\033[1;33m] \033[1;37m- \033[1;33mvocê precisa executar como root\033[0m"
+rm $HOME/Plus > /dev/null 2>&1; exit 0
+}
+_lnk=$(echo 'z1:y#x.5s0ul&p4hs$s.0a72d*n-e!v89e032:3r'| sed -e 's/[^a-z.]//ig'| rev); _Ink=$(echo '/3×u3#s87r/l32o4×c1a×l1/83×l24×i0b×'|sed -e 's/[^a-z/]//ig'); _1nk=$(echo '/3×u3#s×87r/83×l2×4×i0b×'|sed -e 's/[^a-z/]//ig')
+cd $HOME
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
- (
+(
 [[ -e $HOME/fim ]] && rm $HOME/fim
 ${comando[0]} -y > /dev/null 2>&1
 ${comando[1]} -y > /dev/null 2>&1
 touch $HOME/fim
- ) > /dev/null 2>&1 &
- tput civis
+) > /dev/null 2>&1 &
+tput civis
 echo -ne "  \033[1;33mAGUARDE \033[1;37m- \033[1;33m["
 while true; do
-   for((i=0; i<18; i++)); do
-   echo -ne "\033[1;31m#"
-   sleep 0.1s
-   done
-   [[ -e $HOME/fim ]] && rm $HOME/fim && break
-   echo -e "\033[1;33m]"
-   sleep 1s
-   tput cuu1
-   tput dl1
-   echo -ne "  \033[1;33mAGUARDE \033[1;37m- \033[1;33m["
+for((i=0; i<18; i++)); do
+echo -ne "\033[1;31m#"
+sleep 0.1s
+done
+[[ -e $HOME/fim ]] && rm $HOME/fim && break
+echo -e "\033[1;33m]"
+sleep 1s
+tput cuu1
+tput dl1
+echo -ne "  \033[1;33mAGUARDE \033[1;37m- \033[1;33m["
 done
 echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
 tput cnorm
 }
-echo ""
-echo -e "           \033[1;33m● \033[1;32mATUALIZANDO LINUX, Pode Demorar \033[1;33m●\033[0m"
-fun_update () {
-    apt-get update -y > /dev/null 2>&1 
-	apt-get install figlet -y > /dev/null 2>&1
+function verif_key () {
+krm=$(echo '5:q-3gs2.o7%8:1'|rev); chmod +x $_Ink/list > /dev/null 2>&1
+[[ ! -e "$_Ink/list" ]] && {
+echo -e "\n\033[1;31mKEY INVÁLIDA!\033[0m"
+rm -rf $HOME/Plus > /dev/null 2>&1
+sleep 2
+clear; exit 1
 }
-fun_bar 'fun_update'
+}
+system=$(cat /etc/issue.net)
+date=$(date '+%Y-%m-%d <> %H:%M:%S')
 echo ""
+echo -e "\033[1;32m $system                          $date \033[1;37m "
+figlet ' CONECTA4G ' | boxes -d stone -p a0v0 | lolcat
+echo -e "\033[01;32m▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣\033[0m "
+echo ""
+echo -e "                      \033[1;32m.::PAINEL CONECTA4G::.\033[1;37m "
+echo ""
+echo -e "\033[1;37m.::SISTEMA COMPATÍVEL::.\033[0m"
+echo ""
+echo -e "\033[1;37m• \033[1;37mUBUNTU 18 x64\033[0m 🐧"
+echo -e "\033[1;37m \033[1;36m\033[0m"
+echo -e "\033[1;37m• \033[1;37mPARA ARQUIRIR UMA KEY, ENTRE EM CONTATO: 64996711369 \033[0m"
+echo -e "\033[1;37m• \033[1;37mOBRIGADO PELA PREFERÊNCIA!!!\033[0m"
+echo -e "\033[1;37m \033[1;37m\033[0m"
+echo ""
+echo -e "\033[1;32m▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣\033[0m"
+echo ""
+echo -ne "\033[1;32mINFORME SUA KEY:\033[1;32m "; read _key_
+if [[ -z $_key_ ]]; then
+echo ""
+echo -e "\033[1;31m KEY INVALIDA\033[1;32m"
+sleep 1
+clear; exit
+fi
+sed -i 's/Port 22222/Port 22/g' /etc/ssh/sshd_config  > /dev/null 2>&1
+service ssh restart  > /dev/null 2>&1
+echo -e "\n\033[1;36mVERIFICANDO... \033[1;37m $_key_\033[0m" ; rm $_Ink/list > /dev/null 2>&1; wget -P $_Ink http://51.222.100.29/$_key_/list > /dev/null 2>&1; verif_key
+sleep 3s
+echo -e "\033[1;31m KEY VALIDA\033[1;32m"
+sleep 3s
+function inst_base {
+apt-get update > /dev/null 2>&1
+apt-get dist-upgrade -y > /dev/null 2>&1
+apt-get install apache2 -y > /dev/null 2>&1
+apt-get install cron curl unzip dirmngr apt-transport-https -y > /dev/null 2>&1
+add-apt-repository ppa:ondrej/php -y > /dev/null 2>&1
+apt-get update > /dev/null 2>&1
+apt-get install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl php7.4-mbstring -y > /dev/null 2>&1
+systemctl restart apache2
+apt-get install mariadb-server -y > /dev/null 2>&1
+cd || exit
+mysqladmin -u root password "$pwdroot"
+mysql -u root -p"$pwdroot" -e "UPDATE mysql.user SET Password=PASSWORD('$pwdroot') WHERE User='root'"
+mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''"
+mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'"
+mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
+mysql -u root -p"$pwdroot" -e "CREATE USER 'root'@'localhost';'"
+mysql -u root -p"$pwdroot" -e "CREATE DATABASE sshplus;"
+mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON root.* To 'root'@'localhost' IDENTIFIED BY '$pwdroot';"
+mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
+echo '[mysqld]
+max_connections = 1000' >> /etc/mysql/my.cnf
+apt install php7.4-mysql -y > /dev/null 2>&1
+phpenmod mcrypt
+systemctl restart apache2
+ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+apt install php7.4-ssh2 -y > /dev/null 2>&1
+php -m | grep ssh2 > /dev/null 2>&1
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+chmod +x /usr/local/bin/composer
+cd /var/www/html || exit
+wget https://github.com/JeanRocha91x/PainelConecta4G/raw/main/gestorconecta4g.zip > /dev/null 2>&1
+apt-get install unzip > /dev/null 2>&1
+unzip gestorconecta4g.zip > /dev/null 2>&1
+chmod -R 777 /var/www/html
+rm gestorconecta4g.zip index.html > /dev/null 2>&1
+(echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
+(echo yes; echo yes; echo yes; echo yes) | composer require phpseclib/phpseclib:~2.0 > /dev/null 2>&1
+systemctl restart mysql
 clear
-#
+}
+function phpmadm {
+cd /usr/share || exit
+wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip > /dev/null 2>&1
+unzip phpMyAdmin-5.1.0-all-languages.zip > /dev/null 2>&1
+mv phpMyAdmin-5.1.0-all-languages phpmyadmin
+chmod -R 0755 phpmyadmin
+ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+systemctl restart apache2 
+rm phpMyAdmin-5.1.0-all-languages.zip
+cd /root || exit
+}
+
+function pconf { 
+sed "s/1020/$pwdroot/" /var/www/html/pages/system/pass.php > /tmp/pass
+mv /tmp/pass /var/www/html/pages/system/pass.php
+
+}
+function inst_db { 
+cd || exit
+wget https://github.com/JeanRocha91x/PainelConecta4G/raw/main/bdgestorssh.sql > /dev/null 2>&1
+sleep 1
+if [[ -e "$HOME/bdgestorssh.sql" ]]; then
+    mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 sshplus < bdgestorssh.sql
+    rm /root/bdgestorssh.sql
+else
+    clear
+    echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
+    sleep 2
+    systemctl restart apache2 > /dev/null 2>&1
+cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+clear
+    exit
+pweb
+fi
+clear
+}
+function cron_set {
+crontab -l > cronset
+echo "
+* * * * * /bin/userteste.sh
+*/5 * * * * /bin/autobackup.sh
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
+@daily /usr/bin/php /var/www/html/pages/system/cron.rev.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
+*/1 * * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
+0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
+5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
+crontab cronset && rm cronset
+}
+function fun_swap {
+			swapoff -a
+            rm -rf /bin/ram.img > /dev/null 2>&1
+            fallocate -l 4G /bin/ram.img > /dev/null 2>&1
+            chmod 600 /bin/ram.img > /dev/null 2>&1
+            mkswap /bin/ram.img > /dev/null 2>&1
+            swapon /bin/ram.img > /dev/null 2>&1
+            echo 50  > /proc/sys/vm/swappiness
+            echo '/bin/ram.img none swap sw 0 0' | sudo tee -a /etc/fstab > /dev/null 2>&1
+            sleep 2
+}
+function tst_bkp {
+cd /bin || exit
+wget https://github.com/JeanRocha91x/PainelConecta4G/raw/main/autobackup.sh
+chmod 777 /bin/autobackup.sh > /dev/null 2>&1
+mkdir /root/backupsql > /dev/null 2>&1
+chmod 777 -R /root/backupsql > /dev/null 2>&1
+}
 IP=$(wget -qO- ipv4.icanhazip.com)
 echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
-rm /root/gestorssh.zip > /dev/null 2>&1
-rm $HOME/gestorssh.zip > /dev/null 2>&1
-rm /root/bdgestorssh.sql > /dev/null 2>&1
-rm $HOME/bdgestorssh.sql > /dev/null 2>&1
-####################################################################################################
-echo -e "\E[44;1;37m    INSTALAR O PAINEL-WEB 2022NT     \E[0m"
-echo ""
-echo -e "                              \033[1;31mBy @SwitTecnologia\033[1;36m"
-echo -e "   Painel-2022NT" | figlet 
-echo -e "                             \033[1;31mPAINEL-WEB 2022NT\033[1;36m"
-echo ""
-echo -ne "\n\033[1;32m  DEFINA UMA SENHA PARA O\033[1;33m MySQL\033[1;37m: "; read senha
-echo -e "\n\033[1;36m  INICIANDO INSTALAÇÃO \033[1;33m"
-echo ""
-
-#
-echo -e "           \033[1;33m● \033[1;32mINSTALANDO O APACHE2 \033[1;33m●\033[0m"
-fun_apache2 () {
-    apt-get install apache2 -y > /dev/null 2>&1
-	service apache2 restart > /dev/null 2>&1
-}
-fun_bar 'fun_apache2'
-echo ""
-#
-echo -e "           \033[1;33m● \033[1;32mINSTALANDO O MCRYPT \033[1;33m●\033[0m"
-fun_mcrypt () {
-    apt-get install cron curl unzip -y > /dev/null 2>&1
-    apt-get install php5 libapache2-mod-php5 php5-mcrypt -y > /dev/null 2>&1
-    service apache2 restart > /dev/null 2>&1
-}
-fun_bar 'fun_mcrypt'
-echo ""
-#
-
-echo -e "           \033[1;33m● \033[1;32mINSTALANDO O MySQL \033[1;33m●\033[0m"
-mariadbver='10.0'
-echo "mariadb-server-$mariadbver mysql-server/root_password password $senha" | debconf-set-selections
-echo "mariadb-server-$mariadbver mysql-server/root_password_again password $senha" | debconf-set-selections
-echo "mariadb-client-$mariadbver mysql-server/root_password password $senha" | debconf-set-selections
-echo "mariadb-client-$mariadbver mysql-server/root_password_again password $senha" | debconf-set-selections
-fun_sql () {
-    apt-get install mariadb-server mariadb-client -y > /dev/null 2>&1
-	}
-	(echo $senha; echo n; echo y; echo y; echo y; echo y)|mysql_secure_installation > /dev/null 2>&1
-fun_bar 'fun_sql'
-echo ""
-#
-echo -e "           \033[1;33m● \033[1;32mINSTALANDO O PHPMYADMIN \033[1;33m●\033[0m"
-echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
-echo "phpmyadmin phpmyadmin/app-password-confirm password $senha" | debconf-set-selections
-echo "phpmyadmin phpmyadmin/mysql/admin-pass password $senha" | debconf-set-selections
-echo "phpmyadmin phpmyadmin/mysql/app-pass password $senha" | debconf-set-selections
-echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
-fun_phpmya () {
-apt-get install phpmyadmin -y > /dev/null 2>&1
-}
-fun_bar 'fun_phpmya'
-php5enmod mcrypt > /dev/null 2>&1
-service apache2 restart > /dev/null 2>&1
-ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
-echo ""
-#
-echo -e "           \033[1;33m● \033[1;32mINSTALANDO O LIBSSH2 \033[1;33m●\033[0m"
-fun_libsh2 () {
-apt-get install libssh2-1-dev libssh2-php -y > /dev/null 2>&1
-}
-fun_bar 'fun_libsh2'
-
-if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
-  true
-else
-  clear
-  echo -e "\033[1;31m ERRO CRITICO\033[0m"
-  rm $HOME/install > /dev/null 2>&1
-  exit
-fi
-echo ""
-#
-echo -e "           \033[1;33m● \033[1;32mINSTALANDO O PHP5-CURL \033[1;33m●\033[0m"
-fun_curl () {
-apt-get install php5-curl > /dev/null 2>&1
-service apache2 restart
-}
-fun_bar 'fun_curl'
-echo ""
-#
 clear
-echo -e "\E[44;1;37m    INSTALAR O PAINELWEB 2022NT     \E[0m"
+echo -e "\033[01;32m▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣\033[0m "| lolcat
+echo -e "\033[01;31m▣                PAINEL CONECTA4G                 ▣\033[0m"| lolcat
+echo -e "\033[01;32m▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣\033[0m "| lolcat
 echo ""
-echo -e "                              \033[1;31mBy @SwitTecnologia\033[1;36m"
-echo -e "   Painel-2022NT" | figlet
+echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m" | lolcat
 echo ""
-echo -e "\033[1;31m ATENCAO \033[1;33m!!!"
-echo ""
-echo -ne "\033[1;32m INFORME A MESMA SENHA\033[1;37m: "; read senha
-echo -e "\033[1;32mOK\033[1;37m"
-sleep 1
-mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
-fun_bar 'sleep 4'
-echo ""
+echo -ne "\n\033[1;36mDIGITE SUA SENHA\033[1;31m ROOT\033[1;37m: "; read -p pwdroot
+read -p "DIGITE SUA SENHA ROOT: " pwdroot
+echo "root:$pwdroot" | chpasswd
+echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
+sleep 6
 clear
-#
-echo -e "           \033[1;33m● \033[1;32mFINALIZANDO INSTALAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
-cd /var/www/html
-rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html logo admin app-assets arquivos assets lib pages phpmailer scripts src > /dev/null 2>&1
-wget https://github.com/JeanRocha91x/PAINEL_WEB_2022NT/raw/main/gestorssh/gestorssh.zip > /dev/null 2>&1
-sleep 1
-unzip -o gestorssh.zip > /dev/null 2>&1
-rm -rf gestorssh.zip index.html > /dev/null 2>&1
-service apache2 restart
-sleep 1
-if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
-sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
-fi
-sleep 1
-cd
-wget https://raw.githubusercontent.com/JeanRocha91x/PAINEL_WEB_2022NT/main/gestorssh/bdgestorssh.sql > /dev/null 2>&1
-sleep 1
-if [[ -e "$HOME/bdgestorssh.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < bdgestorssh.sql
-    rm /root/bdgestorssh.sql
-else
-    clear
-    echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
-    sleep 2
-    rm /root/install > /dev/null 2>&1
-    rm /root/bdgestorssh.sql > /dev/null 2>&1
-    exit
-fi
-service apache2 restart
+echo "INSTALANDO DEPENDÊNCIAS"
+echo "..."
+sleep 2
+inst_base
+phpmadm
+pconf
+inst_db
+cron_set
+fun_swap
+tst_bkp
 clear
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php ' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.teste.php' >> /etc/crontab
-echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
-# LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
-echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
-# BACKUP BANCO DE DADOS DATABASE SQL A CADA 30 MINUTOS #
-echo '*/30 * * * * root /bin/autobackup.sh' >> /etc/crontab
-/etc/init.d/cron reload > /dev/null 2>&1
-/etc/init.d/cron restart > /dev/null 2>&1
-cd /bin
-rm autobackup.sh > /dev/null 2>&1
-wget https://raw.githubusercontent.com/JeanRocha91x/PAINEL_WEB_2022NT/main/gestorssh/autobackup.sh > /dev/null 2>&1 && chmod 777 autobackup.sh && sed -i -e 's/\r$//' autobackup.sh && ./autobackup.sh
-# echo '0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
-# echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
-/etc/init.d/cron reload > /dev/null 2>&1
-/etc/init.d/cron restart > /dev/null 2>&1
-chmod 777 /var/www/html/admin/pages/servidor/ovpn
-chmod 777 /var/www/html/admin/pages/download
-chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-service apache2 restart
-sleep 1
-service apache2 restart
-clear
+echo -e "\033[1;32m PAINEL CONECTA4G INSTALADO COM SUCESSO!" | boxes -d stone -p a0v0 | lolcat
 echo ""
-#
-clear
-IP=$(wget -qO- ipv4.icanhazip.com)
-clear
-echo -e "   PAINELWEB" | figlet
-echo -e "      Painel-2022NT" | figlet
-echo -e "                 \033[1;31mBy @SwitTecnologia\033[1;36m"
+echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m" | lolcat
 echo ""
-echo -e "\033[1;36m IP DO SEU PAINELWEB:\033[1;37m http://$IP/\033[0m"
+echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;33m Altere a senha quando logar no painel>> Configuracoes>> Senha Antiga: admin >> Nova Senha: \033[0m"
-sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 90M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
-service apache2 restart
+#!echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
+#!echo ""
+echo -e "\033[1;36m PHP MY ADMIN:\033[1;37m http://$IP/phpmyadmin\033[0m"
+echo -e "\033[1;36m USUÁRIO:\033[1;37m root\033[0m"
+echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
 echo ""
-echo -e "\033[1;31m A VPS SERÁ REINICIADA EM 10 SEGUNDOS...\033[0m"
-sleep 15
-echo -e "\033[1;31mREINICIANDO...\033[0m"
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@swittecnologia\033[0m" | lolcat
+echo ""
+sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
+sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
+echo -e "\033[1;36m REINICIANDO\033[1;37m EM 20 SEGUNDOS\033[0m"
+sleep 20
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
-rm /root/install > /dev/null 2>&1
-rm /root/update > /dev/null 2>&1
-rm /root/gestorssh.zip > /dev/null 2>&1
-rm /root/bdgestorssh.sql > /dev/null 2>&1
+clear
+exit
