@@ -66,7 +66,7 @@ echo ""
 echo -e "\033[1;32m▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣\033[0m"
 echo ""
 #echo -ne "\033[1;32mINFORME SUA KEY:\033[1;32m "; read _key_
-*if [[ -z $_key_ ]]; then
+#*if [[ -z $_key_ ]]; then
 #echo ""
 #echo -e "\033[1;31m KEY INVALIDA\033[1;32m"
 #sleep 1
