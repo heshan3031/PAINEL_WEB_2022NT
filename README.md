@@ -14,7 +14,7 @@ apt-get update -y; apt-get upgrade -y;
 
 # INSTALAR PAINEL WEB 2022NT
 ```
-wget https://raw.githubusercontent.com/JeanRocha91x/PAINEL_WEB_2022NT/main/gestorssh/install ; bash install
+wget https://raw.githubusercontent.com/heshan3031/PAINEL_WEB_2022NT/main/gestorssh/install ; bash install
 ```
 
 # DEFINIR/ALTERAR SENHA ROOT
